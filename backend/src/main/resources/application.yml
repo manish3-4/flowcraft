@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: flowcraft-backend
+
+  # PostgreSQL Connection
+  datasource:
+    url: jdbc:postgresql://localhost:5432/flowcraft_db
+    username: flowcraft_user
+    password: secret_password
+    driver-class-name: org.postgresql.Driver
+
+  # JPA / Hibernate Settings
+  jpa:
+    hibernate:
+      # 'update' automatically creates/updates tables in the DB based on our Java code.
+      # Great for development! (We use 'validate' or Flyway in production).
+      ddl-auto: update 
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true # Prints SQL queries in the console so you can see what's happening
+
+  # Redis Connection
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+# Server port (Default is 8080)
+server:
+  port: 8080
